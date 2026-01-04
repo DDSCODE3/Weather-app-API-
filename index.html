@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather | Ruhollah Hosseini</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- English -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Persian -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="icon" href="public/images/icons8-summer-50.png" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "Vazirmatn", "system-ui", "sans-serif"],
+            fa: ["Vazirmatn", "Inter", "sans-serif"],
+          },
+          colors: {
+            accent: "#4f46e5",   // indigo-600
+            accentSoft: "#eef2ff"
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body
+  class="min-h-screen bg-gradient-to-br from-slate-100 via-indigo-50 to-sky-100 text-slate-900 font-sans antialiased">
+
+  <main class="page-wrapper max-w-5xl mx-auto px-4 py-14 opacity-0 translate-y-4 transition-all duration-500">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between mb-12">
+      <h1 class="text-base font-semibold tracking-tight text-slate-800">
+        Ruhollah Hosseini
+      </h1>
+
+      <div
+        class="flex items-center gap-2 rounded-xl bg-white/80 backdrop-blur border border-slate-200 px-2 py-1 shadow-sm">
+        <input class="search-input w-40 sm:w-48 bg-transparent px-3 py-2 text-sm
+                 focus:outline-none" placeholder="Search city" />
+        <button class="search-btn rounded-lg px-3 py-2 hover:bg-slate-100 transition">
+          <i class="fa-solid fa-magnifying-glass text-slate-500"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Error -->
+    <p class="error-message hidden mb-6 text-sm text-rose-600">
+      City not found. Please check the name and try again.
+    </p>
+
+    <!-- Content -->
+    <section class="space-y-10">
+
+      <!-- Title -->
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight">
+          Weather Overview
+        </h2>
+        <p class="text-sm text-slate-500">
+          Current conditions in
+          <span class="city-name font-medium text-slate-800">
+            London
+          </span>
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Main Weather -->
+        <div class="rounded-2xl bg-white/90 backdrop-blur border border-slate-200 p-7 shadow-md">
+          <div class="flex items-center gap-5">
+            <div class="weather-icon flex items-center justify-center w-14 h-14 rounded-xl bg-accentSoft text-accent">
+              <i class="fa-solid fa-cloud text-2xl"></i>
+            </div>
+
+            <div>
+              <p class="temp text-5xl font-semibold leading-none">
+                °
+              </p>
+              <p class="weather-status text-sm text-slate-500 mt-1">
+                Cloudy
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="rounded-2xl bg-white/90 backdrop-blur border border-slate-200 p-7 shadow-md">
+          <div class="grid grid-cols-3 gap-6 text-sm">
+
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-sky-600">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <div>
+                <p class="text-slate-500">Humidity</p>
+                <p class="humidity font-medium text-slate-800">%</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-100 text-indigo-600">
+                <i class="fa-solid fa-wind"></i>
+              </div>
+              <div>
+                <p class="text-slate-500">Wind</p>
+                <p class="wind font-medium text-slate-800">km/h</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <div>
+                <p class="text-slate-500">Pressure</p>
+                <p class="pressure font-medium text-slate-800">hPa</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Persian helper -->
+      <p class="font-fa text-sm text-slate-500">
+        اطلاعات فعلی آب‌وهوا برای شهر انتخاب‌شده
+      </p>
+
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
